@@ -1,0 +1,22 @@
+{
+  "name": "hmda-to-json",
+  "version": "0.0.1",
+  "description": "HMDA data to JSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LinuxBozo/hmda-to-json.git"
+  },
+  "author": "M. Adam Kendall",
+  "license": "MIT",
+  "bugs": {
+      "url": "https://github.com/LinuxBozo/hmda-to-json/issues"
+  },
+  "homepage": "https://github.com/LinuxBozo/hmda-to-json",
+  "dependencies": {
+    "line-chomper": "^0.4.5"
+  }
+}
