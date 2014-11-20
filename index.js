@@ -1,6 +1,7 @@
 'use strict';
 
 var HMDAFileProcessor = require('./hmda_file_processor');
+var fs = require('fs');
 
 function main() {
 
@@ -13,7 +14,8 @@ function main() {
     }
 
     console.log('Processing..');
-    HMDAFileProcessor.process(file_name, function(error, json) {
+    var stream = fs.createReadStream(file_name);
+    HMDAFileProcessor.process(stream, function(error, json) {
         if (error) {
             console.log(error);
         } else {

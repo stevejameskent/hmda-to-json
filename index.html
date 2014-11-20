@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Browserify!</title>
+        <script src="build/bundle.js"></script>
+    </head>
+    <body>
+        <input type="file" id="fileInput"/>
+        <script>
+            var HMDAFileProcessor = require('hmda_file_processor');
+
+            var fileInput = document.getElementById('fileInput');
+            fileInput.addEventListener('change', function(e) {
+                    var file = fileInput.files[0];
+                    
+                    console.log('Processing...');
+                    HMDAFileProcessor.process(file, function(error, json) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log(json);
+                        }
+                        console.log('done');
+                    });
+            });
+        </script>
+    </body>
+</html>

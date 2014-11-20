@@ -13,10 +13,16 @@
   "author": "M. Adam Kendall",
   "license": "MIT",
   "bugs": {
-      "url": "https://github.com/LinuxBozo/hmda-to-json/issues"
+    "url": "https://github.com/LinuxBozo/hmda-to-json/issues"
   },
   "homepage": "https://github.com/LinuxBozo/hmda-to-json",
   "dependencies": {
+    "filereader-stream": "^0.1.1",
     "line-chomper": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.2.0",
+    "grunt-contrib-jshint": "^0.10.0"
   }
 }
