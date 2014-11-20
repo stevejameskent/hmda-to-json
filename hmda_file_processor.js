@@ -27,15 +27,16 @@ var HMDAFileProcessor = function() {
             chomp(file, function(err, lines) {
                 var error = null;
                 for (var lineNumber=0; lineNumber < lines.length; lineNumber++) {
+                    var record;
                     if (lineNumber === 0) {
-                        var record = _parseLine('transmittalSheet', lines[lineNumber]);
+                        record = _parseLine('transmittalSheet', lines[lineNumber]);
                         if (! record) {
                             error = 'Error in transmittal sheet data at line 1';
                             break;
                         }
                         _hmdaFileJson.transmittalSheet = record;
                     } else {
-                        var record = _parseLine('loanApplicationRegister', lines[lineNumber]);
+                        record = _parseLine('loanApplicationRegister', lines[lineNumber]);
                         if (! record) {
                             error = 'Error in load application register at line' + lineNumber+1;
                             break;
@@ -46,7 +47,7 @@ var HMDAFileProcessor = function() {
                 next(error, _hmdaFileJson);
             });
         }
-    }
+    };
 };
 
 module.exports = new HMDAFileProcessor();

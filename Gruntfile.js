@@ -18,6 +18,7 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     alias: ['./hmda_file_processor.js:hmda_file_processor'],
+                    require: ['filereader-stream', 'domnode-filestream'],
                     browserifyOptions: {
                         debug: true,
                     }
@@ -30,4 +31,4 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-browserify');
-}
+};

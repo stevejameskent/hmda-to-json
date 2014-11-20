@@ -24,6 +24,6 @@ function main() {
         console.log('done');
     });
 
-};
+}
 
 module.exports = main();
