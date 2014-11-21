@@ -4,8 +4,10 @@ var chomp = require('line-chomper').chomp;
 var file_spec = require('./hmda_file_spec.json');
 
 var _hmdaFileJson = {
-    transmittalSheet: {},
-    loanApplicationRegisters: []
+    hmdaFile: {
+        transmittalSheet: {},
+        loanApplicationRegisters: []
+    }
 };
 
 function _parseLine(type, line) {
@@ -34,14 +36,14 @@ var HMDAFileProcessor = function() {
                             error = 'Error in transmittal sheet data at line 1';
                             break;
                         }
-                        _hmdaFileJson.transmittalSheet = record;
+                        _hmdaFileJson.hmdaFile.transmittalSheet = record;
                     } else {
                         record = _parseLine('loanApplicationRegister', lines[lineNumber]);
                         if (! record) {
                             error = 'Error in load application register at line' + lineNumber+1;
                             break;
                         }
-                        _hmdaFileJson.loanApplicationRegisters.push(record);
+                        _hmdaFileJson.hmdaFile.loanApplicationRegisters.push(record);
                     }
                 }
                 next(error, _hmdaFileJson);
