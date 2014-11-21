@@ -18,6 +18,7 @@
   "homepage": "https://github.com/LinuxBozo/hmda-to-json",
   "dependencies": {
     "filereader-stream": "^0.1.1",
+    "domnode-filestream": "0.0.3",
     "line-chomper": "^0.4.5"
   },
   "devDependencies": {
