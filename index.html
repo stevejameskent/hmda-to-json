@@ -8,13 +8,19 @@
         <input type="file" id="fileInput"/>
         <script>
             var HMDAFileProcessor = require('hmda_file_processor');
+            //var createReadStream = require('filereader-stream');
+            var FileStream = require('domnode-filestream');
 
             var fileInput = document.getElementById('fileInput');
             fileInput.addEventListener('change', function(e) {
                     var file = fileInput.files[0];
+                    var fileStream = new FileStream(file); // domnode-filestream
+                    var outStream = new FileStream.FSStream();
+                    fileStream.pipe(outStream);
+                    //var fileStream = createReadStream(file); // filereader-stream
                     
                     console.log('Processing...');
-                    HMDAFileProcessor.process(file, function(error, json) {
+                    HMDAFileProcessor.process(outStream, function(error, json) {
                         if (error) {
                             console.log(error);
                         } else {
